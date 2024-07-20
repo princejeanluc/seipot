@@ -15,10 +15,10 @@ class SubExtractor(ABC):
 
     def cleanText(self, list_text :str):
         for i in range(len(list_text)):
-            list_text[i] = list_text[i].replace("\n","")
-            list_text[i] = list_text[i].replace("·","")
-            list_text[i] = list_text[i].replace("~","")
-            list_text[i] = list_text[i].replace("•","")
+            list_text[i] = list_text[i].replace("\n",". ")
+            list_text[i] = list_text[i].replace("·",",")
+            list_text[i] = list_text[i].replace("~"," ")
+            list_text[i] = list_text[i].replace("•",",")
             list_text[i] = " ".join(list_text[i].split())
         return list_text
 

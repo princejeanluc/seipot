@@ -10,12 +10,13 @@ import time,os
 class Seipot:
     @staticmethod
     def extract(file_path:str,process:ProcessExtraction):
+        # on met une pause pour changer de thread , on quitte la thread 2 => 1
         time.sleep(0.05)
         wb = Workbook()
         ws = wb.active
         datas = [["entreprise","domaine","localisation","contact","email","poste","mission","date_debut","competences","niveau"]]
         list_text = TextExtractor.extract(file_path)
-        lang = detect(list_text[0])
+        lang = detect(list_text[0]) # on detecte la langue
         Questioner.lang = lang
         tr = Translator()
         for i in range(len(list_text)):
